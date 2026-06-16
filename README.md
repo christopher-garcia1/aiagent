@@ -36,20 +36,50 @@ An autonomous AI coding agent built in Python, powered by Google Gemini. Given a
 4.Run
   uv run main.py "Your prompt here" || Add --verbose to see token counts and tool call responses: uv run main.py "Fix the bug: 3 + 7 * 2 shouldn't be 20" --verbose
 
-## How it works 
+## How It Works
 
-How It Works
-The agent runs in a loop, calling Gemini with a system prompt and a set of available tools. Gemini decides which tools to call, the agent executes them, and the results are fed back into the next iteration — until Gemini returns a final text response or the max iteration limit is reached.
+The agent runs in a loop, calling Gemini with a system prompt and a set of available tools.
 
-\`\`\`
+1. Gemini receives the user's prompt and the available tools.
+2. Gemini decides which tool(s) to call.
+3. The agent executes the requested tool(s).
+4. The results are returned to Gemini.
+5. The process repeats until Gemini returns a final response or the maximum iteration limit is reached.
+
+### Project Structure
+
+```text
 .
-├── main.py              # Entry point and agentic loop
-├── call_function.py     # Tool dispatch
-├── prompts.py           # System prompt
-├── config.py            # Constants (max iterations, max chars, etc.)
-└── functions/
-    ├── get_files_info.py
-    ├── get_file_content.py
-    ├── write_file.py
-    └── run_python_file.py
-\`\`\`
+├── main.py                # Entry point and agentic loop
+├── call_function.py       # Tool dispatch
+├── prompts.py             # System prompt
+├── config.py              # Configuration and constants
+│
+├── functions/
+│   ├── get_files_info.py
+│   ├── get_file_content.py
+│   ├── write_file.py
+│   └── run_python_file.py
+```
+
+### Agent Workflow
+
+```text
+User Prompt
+     │
+     ▼
+  Gemini
+     │
+     ├── Calls Tool
+     ▼
+ Agent
+     │
+     ├── Executes Tool
+     ▼
+ Tool Result
+     │
+     ▼
+  Gemini
+     │
+     └── Repeat until final response
+```
