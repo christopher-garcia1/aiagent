@@ -34,7 +34,9 @@ An autonomous AI coding agent built in Python, powered by Google Gemini. Given a
    GEMINI_API_KEY=your_key_here
 
 4.Run
-  uv run main.py "Your prompt here" || Add --verbose to see token counts and tool call responses: uv run main.py "Fix the bug: 3 + 7 * 2 shouldn't be 20" --verbose
+  uv run main.py "Your prompt here" 
+  || 
+  Add --verbose to see token counts and tool call responses: uv run main.py "Fix the bug: 3 + 7 * 2 shouldn't be 20" --verbose
 
 ## How It Works
 
