@@ -41,6 +41,7 @@ An autonomous AI coding agent built in Python, powered by Google Gemini. Given a
 How It Works
 The agent runs in a loop, calling Gemini with a system prompt and a set of available tools. Gemini decides which tools to call, the agent executes them, and the results are fed back into the next iteration — until Gemini returns a final text response or the max iteration limit is reached.
 
+\`\`\`
 .
 ├── main.py              # Entry point and agentic loop
 ├── call_function.py     # Tool dispatch
@@ -51,3 +52,4 @@ The agent runs in a loop, calling Gemini with a system prompt and a set of avail
     ├── get_file_content.py
     ├── write_file.py
     └── run_python_file.py
+\`\`\`
